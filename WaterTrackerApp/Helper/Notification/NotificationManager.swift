@@ -64,4 +64,23 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         }
     }
 
+    func scheduleHourlyNotifications(from startHour: Int = 4, to endHour: Int = 22) {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        for hour in startHour..<endHour {
+            let content = UNMutableNotificationContent()
+            content.title = "💧 Time to Hydrate"
+            content.body = "Drink about 222ml of water now."
+            content.sound = UNNotificationSound(named: UNNotificationSoundName("water_ding.wav"))
+
+            var components = DateComponents()
+            components.hour = hour
+            components.minute = 0
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+            let request = UNNotificationRequest(identifier: "water_\(hour)", content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request)
+        }
+    }
+    
 }

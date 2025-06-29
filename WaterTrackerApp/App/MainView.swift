@@ -40,7 +40,7 @@ struct MainView: View {
                 CustomTabBar(selectedTab: $router.selectedTab)
             }
             .onAppear {
-                NotificationManager.shared.scheduleRepeatingMinuteNotifications()
+                NotificationManager.shared.scheduleHourlyNotifications(from: startHour, to: endHour)
             }
         }
     }
