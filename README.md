@@ -22,8 +22,6 @@ A modern SwiftUI-based water tracking app that helps users stay hydrated with au
 |------|---------|----------|
 | ![Home](screens/home.png) | ![History](screens/history.png) | ![Settings](screens/settings.png) |
 
-*(Add screenshots in a `screens/` directory.)*
-
 ---
 
 ## 🔔 Local Notifications
